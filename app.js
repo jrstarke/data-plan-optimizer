@@ -3,7 +3,8 @@ var DataCalculator = React.createClass({
     getInitialState: function() {
         return {
             usages: [], 
-            plans: []
+            plans: [],
+            tableShown: false
         };
     },
     loadPlansFromServer: function() {
@@ -24,7 +25,6 @@ var DataCalculator = React.createClass({
 
         this.state.usages = usages;
         this.setState(this.state);
-        $(this.refs.dataTable.getDOMNode()).hide();
 
         // Set the timeout so that react has a chance to build the dom (especially the first time)
         // Before we attempt to slide the result in
@@ -32,16 +32,23 @@ var DataCalculator = React.createClass({
             $(_this.refs.dataTable.getDOMNode()).slideDown();
             var tableDiv = $(_this.refs.dataTable.getDOMNode())
             $("body").animate({scrollTop: tableDiv.position().top});
+            _this.state.tableShown = true;
+            _this.setState(this.state);
         },10);
     },
     componentDidMount: function() {
         this.loadPlansFromServer();
     },
     render: function () {
+        tableStyles = {};
+        if (!this.state.tableShown) {
+            tableStyles['display'] = "none";
+        }
+    
         return (
             <div className="commentCalculator">
                 <DataEntryForm onDataEntered={this.handleDataEntered} />
-                <DataTable plans={this.state.plans} usages={this.state.usages} ref="dataTable" />
+                <DataTable styles={tableStyles} plans={this.state.plans} usages={this.state.usages} ref="dataTable" />
             </div>
         );
     }
