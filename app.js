@@ -271,7 +271,7 @@ var DataEntryForm = React.createClass({
                 <div className={"row"}>
                     <div className={"col-md-2"}>
                         <div className={"form-group"}>
-                            <button className={"btn btn-default"} onClick={this.handleSubmit}>Calculate</button>
+                            <button className={"btn btn-primary"} onClick={this.handleSubmit}>Calculate</button>
                         </div>
                     </div>
                 </div>
