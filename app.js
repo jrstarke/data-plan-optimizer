@@ -124,8 +124,8 @@ var DataTable = React.createClass({
             
             return (
                 <div className={"row"}>
-                    <div className={"col-xs-10 col-xs-offset-1"}>
-                        <table className={"table"}>
+                    <div className={"col-md-12 table-responsive"}>
+                        <table className={"table table-bordered table-hover"}>
                             <thead>
                                 <TableRow head={true} elements={carriers} />
                             </thead>
@@ -192,7 +192,7 @@ var DataEntryForm = React.createClass({
         };
     },
     handleSubmit: function(e) {
-          var _this = this;
+        var _this = this;
       
         e.preventDefault();
         var dataUsage = this.refs.dataUsage.getDOMNode().value.trim();
@@ -220,6 +220,19 @@ var DataEntryForm = React.createClass({
         this.state.usageUnit = value;
         this.setState(this.state);
     },
+    sampleData: function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: "sample.data",
+            dataType: 'text',
+            success: function(data) {
+                this.refs.dataUsage.getDOMNode().value = data;
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.error("sample.data", status, err.toString());
+            }.bind(this)
+        });
+    },
     render: function() {
         dataUsageTypes = [
             {
@@ -235,24 +248,30 @@ var DataEntryForm = React.createClass({
         dataUsageSetName="usageUnit";
 
         return (
-            <form data-role={"form"} onSubmit={this.handleSubmit}>
+            <form data-role={"form"}>
                 <div className={"row"}>
-                    <div className={"form-group"}>
-                        <div className={"col-xs-4 col-xs-offset-2"}>
+                    <div className={"col-md-10"}>
+                        <div className={"form-group"}>
                             <textarea name="dataUsage" className={"form-control"} ref="dataUsage" placeholder="Enter your data usage, with each month on a separate line" rows="5" />
                         </div>
                     </div>
 
-                    <div className={"form-group"}>
-                        <div className={"col-xs-4"}>
-                            <div className={"row"}>
-                                <label for="usageUnit" className={"control-label"}>Units</label>
-                                <RadioSet name="usageUnit" setName={"usageUnit"} options={dataUsageTypes} default={this.state.usageUnit} onChange={this.unitChanged} />
-                            </div>
-                            
-                            <div className={"row"}>
-                                <button type="submit" className={"btn btn-default"} value="Calculate">Calculate</button>
-                            </div>
+                    <div className={"col-md-2"}>
+                        <div className={"form-group"}>
+                            <button className={"btn btn-default"} onClick={this.sampleData}>Get Sample Data</button>
+                        </div>
+                        
+                        <div className={"form-group"}>
+                            <label for="usageUnit" className={"control-label"}>Units</label>
+                            <RadioSet name="usageUnit" setName={"usageUnit"} options={dataUsageTypes} default={this.state.usageUnit} onChange={this.unitChanged} />
+                        </div>
+                    </div>
+                </div>
+                
+                <div className={"row"}>
+                    <div className={"col-md-2"}>
+                        <div className={"form-group"}>
+                            <button className={"btn btn-default"} onClick={this.handleSubmit}>Calculate</button>
                         </div>
                     </div>
                 </div>
