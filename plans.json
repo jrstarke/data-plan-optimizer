@@ -1,144 +1,144 @@
 [
-	{
-		"name": "Rogers",
-		"nameColor": "#FFFFFF",
-		"nameBackgroundColor": "#E3173E",
-		"flexRanges": [
-			{
-				"maxData": 10,
-				"price": 5
-			},
-			{
-				"maxData": 100,
-				"price": 10
-			},
-			{
-				"maxData": 500,
-				"price": 20
-			},
-			{
-				"maxData": 5120,
-				"price": 40
-			}
-		],
-		"overage": {
-			"includedData": 5120,
-			"includedPrice": 40,
-			"overageUnitPrice": 10,
-			"overageUnitSize": 1024
-		},
-		"planUrl": "http://www.rogers.com/web/content/mobile-plans"
-	},
-	{
-		"name": "Fido",
-		"nameColor": "#000000",
-		"nameBackgroundColor": "#FFE800",
-		"flexRanges": [
-			{
-				"maxData": 150,
-				"price": 10
-			},
-			{
-				"maxData": 1024,
-				"price": 25
-			},
-			{
-				"maxData": 5120,
-				"price": 35
-			}
-		],
-		"overage": {
-			"includedData": 5120,
-			"includedPrice": 35,
-			"overageUnitPrice": 10,
-			"overageUnitSize": 1024
-		},
-		"planUrl": "http://www.fido.ca/web/content/monthly/ipad_plans"
-	},
-	{
-		"name": "Virgin Mobile",
-		"nameColor": "#FFFFFF",
-		"nameBackgroundColor": "#CC0000",
-		"flexRanges": [
-			{
-				"maxData": 10,
-				"price": 5
-			},
-			{
-				"maxData": 1024,
-				"price": 20
-			},
-			{
-				"maxData": 5120,
-				"price": 40
-			}
-		],
-		"overage": {
-			"includedData": 5120,
-			"includedPrice": 40,
-			"overageUnitPrice": 10,
-			"overageUnitSize": 1024
-		},
-		"planUrl": "http://www.virginmobile.ca/en/plans/tablet-plans.html?itcid=NAV:10"
-	},
-	{
-		"name": "Bell",
-		"nameColor": "#FFFFFF",
-		"nameBackgroundColor": "#0066A4",			
-		"flexRanges": [
-			{
-				"maxData": 10,
-				"price": 5
-			},
-			{
-				"maxData": 1024,
-				"price": 20
-			},
-			{
-				"maxData": 5120,
-				"price": 40
-			}
-		],
-		"overage": {
-			"includedData": 5120,
-			"includedPrice": 40,
-			"overageUnitPrice": 10,
-			"overageUnitSize": 1024
-		},
-		"planUrl": "http://www.bell.ca/Mobility/Cell_phone_plans/Tablet_PC_data_plans/Flex_plans.tab"
-	},
-	{
-		"name": "Telus",
-		"nameColor": "#FFFFFF",
-		"nameBackgroundColor": "#66CC00",			
-		"flexRanges": [
-			{
-				"maxData": 10,
-				"price": 5
-			},
-			{
-				"maxData": 200,
-				"price": 15
-			},
-			{
-				"maxData": 1024,
-				"price": 25
-			},
-			{
-				"maxData": 2048,
-				"price": 35
-			},
-			{
-				"maxData": 5120,
-				"price": 45
-			}
-		],
-		"overage": {
-			"includedData": 5120,
-			"includedPrice": 45,
-			"overageUnitPrice": 0.05,
-			"overageUnitSize": 1
-		},
-		"planUrl": "http://www.telus.com/en/bc/mobility/plans/tablets/index.jsp?INTCMP=Beta_PlansCatalog_CardCTATabletPlans"
-	}
+    {
+        "name": "Rogers",
+        "nameColor": "#FFFFFF",
+        "nameBackgroundColor": "#E3173E",
+        "flexRanges": [
+            {
+                "maxData": 10,
+                "price": 5
+            },
+            {
+                "maxData": 100,
+                "price": 10
+            },
+            {
+                "maxData": 500,
+                "price": 20
+            },
+            {
+                "maxData": 5120,
+                "price": 40
+            }
+        ],
+        "overage": {
+            "includedData": 5120,
+            "includedPrice": 40,
+            "overageUnitPrice": 10,
+            "overageUnitSize": 1024
+        },
+        "planUrl": "http://www.rogers.com/web/content/mobile-plans"
+    },
+    {
+        "name": "Fido",
+        "nameColor": "#000000",
+        "nameBackgroundColor": "#FFE800",
+        "flexRanges": [
+            {
+                "maxData": 150,
+                "price": 10
+            },
+            {
+                "maxData": 1024,
+                "price": 25
+            },
+            {
+                "maxData": 5120,
+                "price": 35
+            }
+        ],
+        "overage": {
+            "includedData": 5120,
+            "includedPrice": 35,
+            "overageUnitPrice": 10,
+            "overageUnitSize": 1024
+        },
+        "planUrl": "http://www.fido.ca/web/content/monthly/ipad_plans"
+    },
+    {
+        "name": "Virgin Mobile",
+        "nameColor": "#FFFFFF",
+        "nameBackgroundColor": "#CC0000",
+        "flexRanges": [
+            {
+                "maxData": 10,
+                "price": 5
+            },
+            {
+                "maxData": 1024,
+                "price": 20
+            },
+            {
+                "maxData": 5120,
+                "price": 40
+            }
+        ],
+        "overage": {
+            "includedData": 5120,
+            "includedPrice": 40,
+            "overageUnitPrice": 10,
+            "overageUnitSize": 1024
+        },
+        "planUrl": "http://www.virginmobile.ca/en/plans/tablet-plans.html?itcid=NAV:10"
+    },
+    {
+        "name": "Bell",
+        "nameColor": "#FFFFFF",
+        "nameBackgroundColor": "#0066A4",            
+        "flexRanges": [
+            {
+                "maxData": 10,
+                "price": 5
+            },
+            {
+                "maxData": 1024,
+                "price": 20
+            },
+            {
+                "maxData": 5120,
+                "price": 40
+            }
+        ],
+        "overage": {
+            "includedData": 5120,
+            "includedPrice": 40,
+            "overageUnitPrice": 10,
+            "overageUnitSize": 1024
+        },
+        "planUrl": "http://www.bell.ca/Mobility/Cell_phone_plans/Tablet_PC_data_plans/Flex_plans.tab"
+    },
+    {
+        "name": "Telus",
+        "nameColor": "#FFFFFF",
+        "nameBackgroundColor": "#66CC00",            
+        "flexRanges": [
+            {
+                "maxData": 10,
+                "price": 5
+            },
+            {
+                "maxData": 200,
+                "price": 15
+            },
+            {
+                "maxData": 1024,
+                "price": 25
+            },
+            {
+                "maxData": 2048,
+                "price": 35
+            },
+            {
+                "maxData": 5120,
+                "price": 45
+            }
+        ],
+        "overage": {
+            "includedData": 5120,
+            "includedPrice": 45,
+            "overageUnitPrice": 0.05,
+            "overageUnitSize": 1
+        },
+        "planUrl": "http://www.telus.com/en/bc/mobility/plans/tablets/index.jsp?INTCMP=Beta_PlansCatalog_CardCTATabletPlans"
+    }
 ]
