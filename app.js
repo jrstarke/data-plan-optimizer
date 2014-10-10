@@ -110,17 +110,21 @@ var DataTable = React.createClass({
                 }
                 return current;    
             });
-                        
-            sums = sums.map(function(sum) {
-                var sumValue = {value: "$" + (Math.round(sum / usageCosts.length * 100) / 100)};
+            
+            var trackData = {};       
+            sums = sums.map(function(sum,index) {
+                var roundedSum = Math.round(sum / usageCosts.length * 100) / 100
+                var sumValue = {value: "$" + roundedSum};
                 
                 if (sum === minSum) {
                     sumValue["lowest"] = true;
                 }
+                trackData[this.props.plans[index].name + " Average Cost"] = roundedSum;
                 return sumValue;
-            });
+            }.bind(this));
             
             sums.splice(0,0,{value: "Average Cost"});
+            mixpanel.track("Plans Shown",trackData);
             
             return (
                 <div className={"row"}>
@@ -201,14 +205,22 @@ var DataEntryForm = React.createClass({
             return;
         }
         
+        var trackData = {}
+        var sum = 0;
         var usages = dataUsage.split(/\n/);
-        usages = usages.map(function(usage) {
+        usages = usages.map(function(usage,index) {
             usage = parseFloat(usage.trim());
             if (_this.state.usageUnit === "kb") {
                 usage = usage / 1024;
             }
+            trackData['usage'+index] = usage;
+            sum += usage;
             return usage;
         });
+        
+        trackData["unit"] = this.state.usageUnit;
+        trackData["average"] = sum;
+        mixpanel.track("Calculate Plans",trackData);
         
         // Callback whoever is interested in our usage
         if (this.props.onDataEntered) {
@@ -219,9 +231,11 @@ var DataEntryForm = React.createClass({
     unitChanged: function (value) {
         this.state.usageUnit = value;
         this.setState(this.state);
+        mixpanel.track("Changed Units",{"unit":value});
     },
     sampleData: function (e) {
         e.preventDefault();
+        mixpanel.track("Used Sample Data");
         $.ajax({
             url: "sample.data",
             dataType: 'text',
