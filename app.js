@@ -1,5 +1,5 @@
 /** @jsx React.DOM */
-var DataCalculator = React.createClass({displayName: 'DataCalculator',
+var DataCalculator = React.createClass({
     getInitialState: function() {
         return {
             usages: [], 
@@ -46,16 +46,16 @@ var DataCalculator = React.createClass({displayName: 'DataCalculator',
         }
     
         return (
-            React.createElement("div", {className: "commentCalculator"}, 
-                React.createElement(DataEntryForm, {onDataEntered: this.handleDataEntered}), 
-                React.createElement(DataTable, {styles: tableStyles, plans: this.state.plans, usages: this.state.usages, ref: "dataTable"})
-            )
+            <div className="commentCalculator">
+                <DataEntryForm onDataEntered={this.handleDataEntered} />
+                <DataTable styles={tableStyles} plans={this.state.plans} usages={this.state.usages} ref="dataTable" />
+            </div>
         );
     }
 });
 
 
-var DataTable = React.createClass({displayName: 'DataTable',
+var DataTable = React.createClass({
     render: function () {
         var _this = this;
     
@@ -101,7 +101,7 @@ var DataTable = React.createClass({displayName: 'DataTable',
                 });
                 usageCost.splice(0,0,{value:usage + " MB"});
                 
-                return React.createElement(TableRow, {elements: usageCost})
+                return <TableRow elements={usageCost} />
             });
         
             minSum = sums.reduce(function(previous,current){
@@ -127,31 +127,31 @@ var DataTable = React.createClass({displayName: 'DataTable',
             mixpanel.track("Plans Shown",trackData);
             
             return (
-                React.createElement("div", {className: "row"}, 
-                    React.createElement("div", {className: "col-md-12 table-responsive"}, 
-                        React.createElement("table", {className: "table table-bordered table-hover"}, 
-                            React.createElement("thead", null, 
-                                React.createElement(TableRow, {head: true, elements: carriers})
-                            ), 
-                            React.createElement("tbody", null, 
-                                usageCosts, 
-                                React.createElement(TableRow, {elements: sums})
-                            )
-                        )
-                    )
-                )
+                <div className={"row"}>
+                    <div className={"col-md-12 table-responsive"}>
+                        <table className={"table table-bordered table-hover"}>
+                            <thead>
+                                <TableRow head={true} elements={carriers} />
+                            </thead>
+                            <tbody>
+                                {usageCosts}
+                                <TableRow elements={sums} />
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             );
         }
         else {
             return (
-                  React.createElement("div", null)
+                  <div />
             );
         }
     }
 });
 
 
-var TableRow = React.createClass({displayName: 'TableRow',
+var TableRow = React.createClass({
     render: function () {
         var _this = this;
         var columns = this.props.elements.map(function(element) {
@@ -172,24 +172,24 @@ var TableRow = React.createClass({displayName: 'TableRow',
         
             if (_this.props.head) {
                 if (element.url) {
-                      return React.createElement("th", {style: styles, className: classes}, React.createElement("a", {style: styles, href: element.url, target: "_blank"}, element.value))
+                      return <th style={styles} className={classes}><a style={styles} href={element.url} target={"_blank"}>{element.value}</a></th>
                 } else {
-                      return React.createElement("th", {style: styles, className: classes}, element.value)
+                      return <th style={styles} className={classes}>{element.value}</th>
                 }
             }
             else {
-                return React.createElement("td", {style: styles, className: classes}, element.value);
+                return <td style={styles} className={classes}>{element.value}</td>;
             }
         });
         
         return (
-            React.createElement("tr", null, columns)
+            <tr>{columns}</tr>
         );
     }
 });
 
 
-var DataEntryForm = React.createClass({displayName: 'DataEntryForm',
+var DataEntryForm = React.createClass({
     getInitialState: function() {
         return {
             usageUnit: "mb"
@@ -262,40 +262,40 @@ var DataEntryForm = React.createClass({displayName: 'DataEntryForm',
         dataUsageSetName="usageUnit";
 
         return (
-            React.createElement("form", {'data-role': "form"}, 
-                React.createElement("div", {className: "row"}, 
-                    React.createElement("div", {className: "col-md-10"}, 
-                        React.createElement("div", {className: "form-group"}, 
-                            React.createElement("textarea", {name: "dataUsage", className: "form-control", ref: "dataUsage", placeholder: "Enter your data usage, with each month on a separate line", rows: "5"})
-                        )
-                    ), 
+            <form data-role={"form"}>
+                <div className={"row"}>
+                    <div className={"col-md-10"}>
+                        <div className={"form-group"}>
+                            <textarea name="dataUsage" className={"form-control"} ref="dataUsage" placeholder="Enter your data usage, with each month on a separate line" rows="5" />
+                        </div>
+                    </div>
 
-                    React.createElement("div", {className: "col-md-2"}, 
-                        React.createElement("div", {className: "form-group"}, 
-                            React.createElement("button", {className: "btn btn-default", onClick: this.sampleData}, "Get Sample Data")
-                        ), 
+                    <div className={"col-md-2"}>
+                        <div className={"form-group"}>
+                            <button className={"btn btn-default"} onClick={this.sampleData}>Get Sample Data</button>
+                        </div>
                         
-                        React.createElement("div", {className: "form-group"}, 
-                            React.createElement("label", {for: "usageUnit", className: "control-label"}, "Units"), 
-                            React.createElement(RadioSet, {name: "usageUnit", setName: "usageUnit", options: dataUsageTypes, default: this.state.usageUnit, onChange: this.unitChanged})
-                        )
-                    )
-                ), 
+                        <div className={"form-group"}>
+                            <label for="usageUnit" className={"control-label"}>Units</label>
+                            <RadioSet name="usageUnit" setName={"usageUnit"} options={dataUsageTypes} default={this.state.usageUnit} onChange={this.unitChanged} />
+                        </div>
+                    </div>
+                </div>
                 
-                React.createElement("div", {className: "row"}, 
-                    React.createElement("div", {className: "col-md-2"}, 
-                        React.createElement("div", {className: "form-group"}, 
-                            React.createElement("button", {className: "btn btn-primary", onClick: this.handleSubmit}, "Calculate")
-                        )
-                    )
-                )
-            )
+                <div className={"row"}>
+                    <div className={"col-md-2"}>
+                        <div className={"form-group"}>
+                            <button className={"btn btn-primary"} onClick={this.handleSubmit}>Calculate</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         );
     }
 });
 
 
-var RadioSet = React.createClass({displayName: 'RadioSet',
+var RadioSet = React.createClass({
     handleChange: function (event) {
         if (this.props.onChange) {
             this.props.onChange(event.target.value);
@@ -304,21 +304,21 @@ var RadioSet = React.createClass({displayName: 'RadioSet',
     render: function () {
         var _this = this;
         return (
-            React.createElement("div", {class: "btn-group"}, 
-                this.props.options.map(function(option) {
+            <div class="btn-group">
+                {this.props.options.map(function(option) {
                     var classes = "btn btn-default"
                     if (option.value === _this.props.default) {
                         classes += " active";
                     }
                     
-                    return React.createElement("button", {type: "button", className: classes, key: option.value, onClick: _this.handleChange, value: option.value}, option.label)
-                })
-            )
+                    return <button type={"button"} className={classes} key={option.value} onClick={_this.handleChange} value={option.value}>{option.label}</button>
+                })}
+            </div>
         );
     }
 });
 
 React.renderComponent(        
-    React.createElement(DataCalculator, {plansUrl: "plans.json"}),
+    <DataCalculator plansUrl="plans.json" />,
     document.getElementById('react-content')
 );
