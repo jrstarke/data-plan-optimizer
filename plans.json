@@ -5,15 +5,45 @@
         "nameBackgroundColor": "#E3173E",
         "flexRanges": [
             {
-                "maxData": 10,
-                "price": 5
-            },
-            {
                 "maxData": 100,
                 "price": 10
             },
             {
                 "maxData": 500,
+                "price": 30
+            },
+            {
+                "maxData": 3072,
+                "price": 45
+            },
+            {
+                "maxData": 6144,
+                "price": 65
+            },
+            {
+                "maxData": 10240,
+                "price": 85
+            }
+        ],
+        "overage": {
+            "includedData": 10240,
+            "includedPrice": 85,
+            "overageUnitPrice": 5,
+            "overageUnitSize": 1024
+        },
+        "planUrl": "http://www.rogers.com/consumer/wireless/mobile-internet"
+    },
+    {
+        "name": "Fido",
+        "nameColor": "#000000",
+        "nameBackgroundColor": "#FFE800",
+        "flexRanges": [
+            {
+                "maxData": 150,
+                "price": 10
+            },
+            {
+                "maxData": 1024,
                 "price": 20
             },
             {
@@ -27,33 +57,7 @@
             "overageUnitPrice": 10,
             "overageUnitSize": 1024
         },
-        "planUrl": "http://www.rogers.com/web/content/mobile-plans"
-    },
-    {
-        "name": "Fido",
-        "nameColor": "#000000",
-        "nameBackgroundColor": "#FFE800",
-        "flexRanges": [
-            {
-                "maxData": 150,
-                "price": 10
-            },
-            {
-                "maxData": 1024,
-                "price": 25
-            },
-            {
-                "maxData": 5120,
-                "price": 35
-            }
-        ],
-        "overage": {
-            "includedData": 5120,
-            "includedPrice": 35,
-            "overageUnitPrice": 10,
-            "overageUnitSize": 1024
-        },
-        "planUrl": "http://www.fido.ca/web/content/monthly/ipad_plans"
+        "planUrl": "http://www.fido.ca/consumer/tablets"
     },
     {
         "name": "Virgin Mobile",
