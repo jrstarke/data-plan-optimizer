@@ -5,33 +5,29 @@
         "nameBackgroundColor": "#E3173E",
         "flexRanges": [
             {
+                "maxData": 10,
+                "price": 5
+            },
+            {
                 "maxData": 100,
                 "price": 10
             },
             {
                 "maxData": 500,
-                "price": 30
+                "price": 20
             },
             {
-                "maxData": 3072,
-                "price": 45
-            },
-            {
-                "maxData": 6144,
-                "price": 65
-            },
-            {
-                "maxData": 10240,
-                "price": 85
+                "maxData": 5120,
+                "price": 40
             }
         ],
         "overage": {
-            "includedData": 10240,
-            "includedPrice": 85,
-            "overageUnitPrice": 5,
+            "includedData": 5120,
+            "includedPrice": 40,
+            "overageUnitPrice": 10,
             "overageUnitSize": 1024
         },
-        "planUrl": "http://www.rogers.com/consumer/wireless/mobile-internet"
+        "planUrl": "http://www.rogers.com/consumer/wireless/tablets"
     },
     {
         "name": "Fido",
